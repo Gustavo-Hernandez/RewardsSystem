@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import useAuthentication from './hooks/useAuthentication';
+import AuthNavigator from './navigation/AuthNavigator';
+import ContentNavigator from './navigation/ContentNavigator';
+import VerificationNavigator from './navigation/VerificationNavigator';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [isAuthenticated, isVerified] = useAuthentication();
+
+  const setNavigator = () => {
+    if (isAuthenticated) {
+      if (isVerified) {
+        return <ContentNavigator />;
+      }
+      return <VerificationNavigator />;
+    }
+    return <AuthNavigator />;
+  };
+  const routes = setNavigator();
+  return <BrowserRouter>{routes}</BrowserRouter>;
 }
 
 export default App;
