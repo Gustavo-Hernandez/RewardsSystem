@@ -1,14 +1,18 @@
 import { auth } from '../api/firebase';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { Context as AuthContext } from '../context/AuthContext';
 
 const useAuthentication = () => {
   const [isAuthenticated, setAuthentication] = useState(false);
   const [isVerified, setVerification] = useState(false);
   const [isAdmin, setAdmin] = useState(true);
+  const { setEmail } = useContext(AuthContext);
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         const idToken = await user.getIdTokenResult();
+        setEmail(idToken.claims.email);
         if (idToken) {
           setAuthentication(true);
         } else {
@@ -34,6 +38,7 @@ const useAuthentication = () => {
     return () => {
       unsubscribe();
     };
+    // eslint-disable-next-line
   }, [isAuthenticated, isVerified, isAdmin]);
 
   return [isAuthenticated, isVerified, isAdmin];
