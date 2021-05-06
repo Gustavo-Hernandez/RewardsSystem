@@ -1,6 +1,6 @@
 import React from 'react';
 import createDataContext from './createDataContext';
-import { auth } from '../api/firebase';
+import { auth, firestore } from '../api/firebase';
 
 const emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
@@ -103,6 +103,10 @@ const signup = (dispatch) => async ({
         email,
         password
       );
+      await firestore.collection("Cliente").doc(user.uid).set({
+        email: email,
+        puntos: 0
+      });
       await user.sendEmailVerification();
     } catch (err) {
       let errorComponent;
