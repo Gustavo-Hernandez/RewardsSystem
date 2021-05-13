@@ -103,9 +103,9 @@ const signup = (dispatch) => async ({
         email,
         password
       );
-      await firestore.collection("Cliente").doc(user.uid).set({
+      await firestore.collection("Client").doc(user.uid).set({
         email: email,
-        puntos: 0
+        points: 0
       });
       await user.sendEmailVerification();
     } catch (err) {

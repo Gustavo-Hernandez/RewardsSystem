@@ -4,13 +4,13 @@ import 'firebase/auth';
 import 'firebase/analytics';
 
 const config = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyChmzuD-xFg3w6-Ume-xb_5tbcBnVeKxL4",
+  authDomain: "labweb-4dde0.firebaseapp.com",
+  projectId: "labweb-4dde0",
+  storageBucket: "labweb-4dde0.appspot.com",
+  messagingSenderId: "542965023973",
+  appId: "1:542965023973:web:45f4e1e6e2227bcac9800c",
+  measurementId: "G-HHDVBT03C5"
 };
 
 class Firebase {
