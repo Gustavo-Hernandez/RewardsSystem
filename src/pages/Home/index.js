@@ -10,7 +10,6 @@ const Home = () => {
   } = useContext(UserContext);
   useEffect(() =>{
       query();
-      console.log("QUERY");
   }, []);
   return (
     <div>

@@ -18,13 +18,11 @@ const query = (dispatch) => async () => {
         let uid = auth.currentUser.uid
         let docRef = firestore.collection("Client").doc(uid);
         let user = await (await docRef.get()).data();
-        console.log(user);
         dispatch({ type: 'set_data', payload: {
                 email: user.email,
                 points: user.points
             }});
     } catch (error) {
-        console.log(error)
         let errorMessage = 'An error with the database occurred!';
         const errorComponent = <p>{errorMessage}</p>;
         dispatch({ type: 'set_error', payload: errorComponent });
