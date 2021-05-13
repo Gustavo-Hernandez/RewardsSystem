@@ -1,0 +1,66 @@
+
+.l-panel {
+    text-align:left;
+    padding: 100px 100px 0px 100px;    
+    font-family: 'poppins';
+}
+
+.r-panel > img {
+    max-height: 1920px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title {
+    font-weight:bolder;
+    color:firebrick;
+    font-size: 50px;
+}
+
+#subtitle {
+    font-size: 72px
+}
+
+.l-panel>p {
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkgray;
+    font-size: 20px;
+}
+
+.l-panel>form {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    color:darkgray;
+    font-size: 20px;
+}
+
+.btnCuenta {
+    background-color: #0d6efd;
+    color:white;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+.iniSesion {
+    padding: 10px 0px;
+}
+
+#init {
+    display: block;
+}
+
+#conf {
+    display: none;
+}
+
+#iniciasesion {
+    display: none;
+}
+
+#logo {
+    font-family: 'poppins';
+    font-size: 32px;
+}
