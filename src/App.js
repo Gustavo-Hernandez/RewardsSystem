@@ -1,16 +1,20 @@
 import { BrowserRouter } from 'react-router-dom';
 import useAuthentication from './hooks/useAuthentication';
 import AuthNavigator from './navigation/AuthNavigator';
-import ContentNavigator from './navigation/ContentNavigator';
+import AdminNavigator from './navigation/AdminNavigator';
+import ClientNavigator from './navigation/ClientNavigator';
 import VerificationNavigator from './navigation/VerificationNavigator';
 
 function App() {
-  const [isAuthenticated, isVerified] = useAuthentication();
+  const [isAuthenticated, isVerified, isAdmin] = useAuthentication();
 
   const setNavigator = () => {
     if (isAuthenticated) {
       if (isVerified) {
-        return <ContentNavigator />;
+        if (isAdmin) {
+          return <AdminNavigator />;
+        }
+        return <ClientNavigator />;
       }
       return <VerificationNavigator />;
     }
