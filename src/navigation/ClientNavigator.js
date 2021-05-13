@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from '../pages/Home';
+import ClientHome from '../pages/ClientHome';
 
 const ClientNavigator = () => {
   return (
     <Switch>
-      <Route exact path='/dashboard' component={Home} />
-      <Route path='/' component={Home} />
+      <Route exact path='/dashboard' component={ClientHome} />
+      <Route path='/' component={ClientHome} />
     </Switch>
   );
 };
