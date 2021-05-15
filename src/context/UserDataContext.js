@@ -5,7 +5,7 @@ import createDataContext from "./createDataContext";
 const userDataReducer = (state, action) =>{
     switch (action.type){
         case 'set_data':
-            return { ...state, email: action.payload.email, points: action.payload.points, error: ''};
+            return { ...state, uid: action.payload.uid, email: action.payload.email, points: action.payload.points, error: ''};
         case 'set_error':
             return { ...state, error: action.payload };
         default:
@@ -19,6 +19,7 @@ const query = (dispatch) => async () => {
         let docRef = firestore.collection("Client").doc(uid);
         let user = await (await docRef.get()).data();
         dispatch({ type: 'set_data', payload: {
+                uid: uid,
                 email: user.email,
                 points: user.points
             }});
