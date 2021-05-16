@@ -3,7 +3,7 @@ import ProductCell from './ProductCell';
 
 const ProductList = ({ title, productList }) => {
   const products = productList.map((p) => (
-    <ProductCell name={p.name} points={p.points} />
+    <ProductCell name={p.name} points={p.points} img={p.img} />
   ));
   return (
     <div style={{ margin: '15px' }}>

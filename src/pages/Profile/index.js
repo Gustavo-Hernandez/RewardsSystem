@@ -1,10 +1,9 @@
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import QRCode from 'react-qr-code';
 import { Button, Col, Row } from 'reactstrap';
 import NavigationBar from '../../components/NavigationBar';
-import { Link } from 'react-router-dom';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Context as UserContext } from '../../context/AuthContext';
 
 const Profile = ({ history }) => {
