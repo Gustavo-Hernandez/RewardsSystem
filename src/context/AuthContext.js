@@ -190,8 +190,19 @@ const signout = (dispatch) => async () => {
   auth.signOut();
 };
 
+const setEmail = (dispatch) => async (email) => {
+  dispatch({ type: 'set_local_email', payload: email });
+};
+
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { signout, signup, signin, sendConfirmationEmail, sendRecoveryEmail },
+  {
+    signout,
+    signup,
+    signin,
+    sendConfirmationEmail,
+    sendRecoveryEmail,
+    setEmail,
+  },
   { error: '', confirmationMessage: '', email: '' }
 );
