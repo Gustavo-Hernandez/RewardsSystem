@@ -1,16 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import QRCode from 'react-qr-code';
 import { Button, Col, Row } from 'reactstrap';
 import NavigationBar from '../../components/NavigationBar';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Context as UserContext } from '../../context/AuthContext';
+import { Context as AuthContext } from '../../context/AuthContext';
+import { Context as UserContext } from '../../context/UserDataContext';
+
 
 const Profile = ({ history }) => {
   const {
     signout,
     state: { email },
+  } = useContext(AuthContext);
+
+  const {
+      query,
+      state: { points },
   } = useContext(UserContext);
+
+  useEffect(() =>{
+      query();
+  }, []);
 
   return (
     <div>
@@ -60,7 +71,8 @@ const Profile = ({ history }) => {
           }}
         >
           <Row>
-            <h4>Mis Puntos: {2}</h4>
+              <h4>Correo: { email }</h4>
+            <h4>Mis Puntos: { points }</h4>
           </Row>
           <Row>
             <h4>Última Visita Registrada: {'2/12/2020'}</h4>
