@@ -54,7 +54,7 @@ return (
          </div>
          <div>
             <br/>
-            <p><Link to="/ForgotPassword">Olvidé mi contraseña</Link></p>
+            <p><Link to="/password-forgot">Olvidé mi contraseña</Link></p>
          </div>
       </form>
 
