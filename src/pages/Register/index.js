@@ -59,9 +59,6 @@ const Register = () => {
                      <p>ó <Link to='/login'>
                         Inicia Sesión
                         </Link>
-                     
-                     
-
                      </p>
                   </div>
                </div>
@@ -70,7 +67,7 @@ const Register = () => {
                </div>
             </form>
          </div>
-         <div class="r-panel col-md-5">
+         <div className="r-panel col-md-5">
             <img src={panel}/>
          </div>
          
