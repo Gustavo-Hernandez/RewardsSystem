@@ -1,6 +1,6 @@
 import React from 'react';
 import createDataContext from './createDataContext';
-import { auth } from '../api/firebase';
+import { auth, firestore } from '../api/firebase';
 
 const emailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
@@ -103,6 +103,10 @@ const signup = (dispatch) => async ({
         email,
         password
       );
+      await firestore.collection("Client").doc(user.uid).set({
+        email: email,
+        points: 0
+      });
       await user.sendEmailVerification();
     } catch (err) {
       let errorComponent;
@@ -186,8 +190,19 @@ const signout = (dispatch) => async () => {
   auth.signOut();
 };
 
+const setEmail = (dispatch) => async (email) => {
+  dispatch({ type: 'set_local_email', payload: email });
+};
+
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { signout, signup, signin, sendConfirmationEmail, sendRecoveryEmail },
+  {
+    signout,
+    signup,
+    signin,
+    sendConfirmationEmail,
+    sendRecoveryEmail,
+    setEmail,
+  },
   { error: '', confirmationMessage: '', email: '' }
 );

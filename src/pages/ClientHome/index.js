@@ -1,12 +1,25 @@
-import React, { useContext } from 'react';
-import { Context as AuthContext } from '../../context/AuthContext';
+import React, {useContext, useEffect} from 'react';
+import NavigationBar from '../../components/NavigationBar';
+import ProductList from '../../components/ProductList';
+import { Context as ProductContext } from '../../context/ProductDataContext';
 
 const Home = () => {
-  const { signout } = useContext(AuthContext);
+  const {
+      query,
+      state: { products }
+  } = useContext(ProductContext);
+
+  useEffect(() => {
+      query();
+  }, []);
+
+  const tempProducts = products;
+
   return (
     <div>
-      <h1>Home</h1>
-      <button onClick={signout}>Logout</button>
+      <NavigationBar />
+        <ProductList title='Productos Disponibles' productList={tempProducts} />
+        <ProductList title='Todos los productos' productList={tempProducts} />
     </div>
   );
 };
