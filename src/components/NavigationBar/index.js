@@ -30,7 +30,12 @@ const NavigationBar = () => {
           style={{ display: 'flex', alignItems: 'center', marginRight: '25px' }}
         >
           {isAdmin ? (
-            <FontAwesomeIcon size='lg' icon={faCamera} />
+            <Link
+              to='/scan'
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+            >
+              <FontAwesomeIcon size='lg' icon={faCamera} />
+            </Link>
           ) : (
             <Link
               to='/profile'
