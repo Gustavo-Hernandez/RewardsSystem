@@ -22,7 +22,7 @@ const Verification = () => {
         <h1 id='subtitle'>Valida tu correo</h1>
         <br />
         <p>
-          Se envió un correo de confirmación a
+          {'Se envió un correo de confirmación a '}
           <strong>
             <b>{email}</b>
           </strong>
@@ -30,7 +30,7 @@ const Verification = () => {
           Revisa tu bandeja de entrada y confirma tu cuenta para continuar
         </p>
         <br />
-        <form style={{ marginLeft: '20px' }}>
+        <div style={{ marginLeft: '20px' }}>
           <button
             id='sendAgain'
             onClick={sendConfirmationEmail}
@@ -40,10 +40,14 @@ const Verification = () => {
           </button>
           <br />
           <br />
-          <button style={{ marginLeft: '15px' }} onClick={signout}>
+          <button
+            style={{ marginLeft: '15px' }}
+            className={'btn btn-danger'}
+            onClick={signout}
+          >
             Inicia sesión con otra cuenta
           </button>
-        </form>
+        </div>
         {confirmationMessage}
       </div>
 

@@ -21,8 +21,14 @@ const Register = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
   const handlePasswordConfirmationChange = (e) => {
     setPasswordConfirmation(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signup({ email, password, passwordConfirmation });
   };
 
   return (
@@ -43,7 +49,7 @@ const Register = () => {
           descuentos y promociones que <br />
           tenemos para tí.
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <input
               type='email'
@@ -79,7 +85,9 @@ const Register = () => {
             <div className='col-3'>
               <button
                 id='crearCuentaInit'
-                onClick={signup}
+                onClick={() =>
+                  signup({ email, password, passwordConfirmation })
+                }
                 className='btn btnCuenta'
               >
                 Crear cuenta

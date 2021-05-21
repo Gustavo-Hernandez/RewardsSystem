@@ -9,14 +9,23 @@ const Login = ({ history }) => {
     signin,
     state: { error },
   } = useContext(AuthContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signin({ email, password });
+  };
+
   return (
     <div className='row'>
       <div className='l-panel col-md-7'>
@@ -35,7 +44,7 @@ const Login = ({ history }) => {
         </p>
         <br />
         <br />
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <input
               type='email'
