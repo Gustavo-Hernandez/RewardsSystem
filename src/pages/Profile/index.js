@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Context as AuthContext } from '../../context/AuthContext';
 import { Context as UserContext } from '../../context/UserDataContext';
 
-
 const Profile = ({ history }) => {
   const {
     signout,
@@ -15,12 +14,13 @@ const Profile = ({ history }) => {
   } = useContext(AuthContext);
 
   const {
-      query,
-      state: { points },
+    query,
+    state: { points },
   } = useContext(UserContext);
 
-  useEffect(() =>{
-      query();
+  useEffect(() => {
+    query();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -71,8 +71,8 @@ const Profile = ({ history }) => {
           }}
         >
           <Row>
-              <h4>Correo: { email }</h4>
-            <h4>Mis Puntos: { points }</h4>
+            <h4>Correo: {email}</h4>
+            <h4>Mis Puntos: {points}</h4>
           </Row>
           <Row>
             <h4>Última Visita Registrada: {'2/12/2020'}</h4>
