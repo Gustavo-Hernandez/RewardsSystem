@@ -43,7 +43,18 @@ const Profile = ({ history }) => {
         <h3 style={{ marginLeft: '15px' }}>Volver</h3>
       </button>
       <Row className='mt-5'>
-        <Col sm={4} md={2} style={{ display: 'flex' }}>
+        <Col
+          sm={12}
+          md={5}
+          lg={4}
+          style={{
+            display: 'flex',
+            marginLeft: '20px',
+            justifyContent: 'center',
+            overflow: 'visible',
+            maxWidth: '300px',
+          }}
+        >
           <div
             style={{
               border: '12px solid #1F53A1',
@@ -51,17 +62,16 @@ const Profile = ({ history }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '280px',
+              minWidth: '280px',
               height: '280px',
-              marginLeft: '25px',
             }}
           >
             <QRCode size={170} value={email} />
           </div>
         </Col>
         <Col
-          sm={6}
-          md={9}
+          sm={12}
+          md={6}
           style={{
             display: 'flex',
             justifyContent: 'center',
