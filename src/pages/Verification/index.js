@@ -11,7 +11,7 @@ const Verification = () => {
   } = useContext(AuthContext);
 
   return (
-    <div className='row'>
+    <div className='row' style={{ backgroundColor: 'white' }}>
       <div className='l-panel col-md-7'>
         <h1 id='title'>HomeToner</h1>
         <br />

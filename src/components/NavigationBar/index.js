@@ -12,14 +12,17 @@ const NavigationBar = () => {
   return (
     <Navbar
       style={{
-        color: 'white',
-        backgroundColor: isAdmin ? '#DD1717' : '#477DCF',
+        backgroundColor: 'white',
+        color: 'black',
+        borderBottom: '4px solid',
+        borderBottomColor: isAdmin ? '#DD1717' : '#477DCF',
       }}
     >
       <h4
         style={{
           marginLeft: '25px',
-          fontWeight: 'bold',
+          marginTop: '12px',
+          fontFamily: 'poppins',
           textDecoration: 'none',
         }}
       >

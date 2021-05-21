@@ -32,7 +32,7 @@ const Register = () => {
   };
 
   return (
-    <div className='row'>
+    <div className='row' style={{ backgroundColor: 'white' }}>
       <div id='init' className='l-panel col-md-7 init'>
         <h1 id='title'>HomeToner</h1>
         <br />
