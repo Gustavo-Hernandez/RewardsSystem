@@ -14,13 +14,10 @@ const Home = () => {
     // eslint-disable-next-line
   }, []);
 
-  const tempProducts = products;
-
   return (
     <div>
       <NavigationBar />
-      <ProductList title='Productos Disponibles' productList={tempProducts} />
-      <ProductList title='Todos los productos' productList={tempProducts} />
+      <ProductList title='Todos los productos' productList={products} />
     </div>
   );
 };
