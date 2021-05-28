@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, CardImg, Badge, CardTitle } from 'reactstrap';
+import { Card, CardBody, CardImg, CardTitle } from 'reactstrap';
 import { Context as ProductContext } from '../../context/ProductDataContext';
 
 const ProductCell = ({ name, points, img, type }) => {

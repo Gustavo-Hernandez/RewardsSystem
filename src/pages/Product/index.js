@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import NavigationBar from '../../components/NavigationBar';
-import { Button, Card, CardImg, Col, Row } from 'reactstrap';
+import { Button, Col, Row } from 'reactstrap';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Context as ProductContext } from '../../context/ProductDataContext';
