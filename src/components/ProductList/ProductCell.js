@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardImg, CardTitle } from 'reactstrap';
 import { Context as ProductContext } from '../../context/ProductDataContext';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 const ProductCell = ({ name, points, img, type }) => {
   const { setCurrentProduct } = useContext(ProductContext);
+
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <Link
@@ -36,10 +39,19 @@ const ProductCell = ({ name, points, img, type }) => {
         >
           {points}
         </div>
-        <CardImg top src={img} />
+        <CardImg
+          top
+          src={img}
+          onLoad={() => {
+            setLoaded(true);
+          }}
+        />
+        {!loaded && (
+          <PuffLoader css={'margin: 0 auto;'} color={'#eccc68'} size={80} />
+        )}
         <CardBody>
-          <CardTitle style={{ textOverflow: 'ellipsis' }} tag='h5'>
-            {name}
+          <CardTitle tag='p'>
+            {name.length < 17 ? name : name.substr(0, 16) + '...'}
           </CardTitle>
         </CardBody>
       </Card>
