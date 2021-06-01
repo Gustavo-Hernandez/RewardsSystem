@@ -64,3 +64,13 @@
     font-family: 'poppins';
     font-size: 32px;
 }
+
+@media only screen and (max-width: 600px) {
+    #title {
+        font-size: 30px;
+    }
+
+    #subtitle {
+        font-size: 35px
+    }
+  }

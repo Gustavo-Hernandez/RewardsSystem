@@ -67,7 +67,7 @@ const Register = () => {
                </div>
             </form>
          </div>
-         <div className="r-panel col-md-5 d-lg-block d-md-none d-sm-none">
+         <div className="r-panel col-md-5 d-none d-xl-block">
             <img src={panel}/>
          </div>
          
