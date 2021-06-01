@@ -41,10 +41,10 @@ return (
             <input type="password" onChange={handlePasswordChange} className="form-control" id="InputPasswordB1" placeholder="Ingresa tu contraseña"/>
          </div>
          <div className="row">
-            <div className="col-3">
+            <div className="col-lg-3 col-md-6">
                <button id="iniciarSesion" onClick={() => signin({ email, password, history })} className="btn btnCuenta">Inicia sesión</button>
             </div>
-            <div  className="col-3 iniSesion">
+            <div  className="col-lg-3 col-md-6 iniSesion">
                <p>
                   ó <Link to='/register'>
                    Crea una nueva cuenta
@@ -63,7 +63,7 @@ return (
       </div>
         
       </div>
-      <div className="r-panel col-md-5">
+      <div className="r-panel col-md-5  d-lg-block d-md-none d-sm-none">
         <img src={panel}/>
       </div>
     </div>

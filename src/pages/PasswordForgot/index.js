@@ -36,19 +36,19 @@ const PasswordForgot = ({ history }) => {
                </div>
                <br/>
                <div className="row">
-                  <div className="col-3">
+                  <div className="col-lg-3 col-md-6">
                      <button id="iniciarSesion" onClick={() => sendRecoveryEmail({ email })} className="btn btnCuenta">Enviar correo</button>
                   </div>
-                  <div  className="col-3 iniSesion">
+                  <div  className="col-lg-3 col-md-6 coldiniSesion">
                      <p>ó <Link to="/login"> Volver a Inicio</Link></p>
-                     {confirmationMessage}
-                      {error}
+                        {confirmationMessage}
+                        {error}
                   </div>
                </div>
             </form>
          </div>
 
-         <div className="r-panel col-md-5">
+         <div className="r-panel col-md-5 d-lg-block d-md-none d-sm-none">
             <img src={panel}/>
          </div>
 

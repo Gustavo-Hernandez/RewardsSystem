@@ -12,7 +12,7 @@ const Verification = () => {
 
   return (
     <div className="row">  
-      <div className="l-panel col-md-7">
+      <div className="l-panel col-lg-12 col-md-7 ">
             <h1 id="title">HomeToner</h1>
             <br/>
             <br/>
@@ -35,7 +35,7 @@ const Verification = () => {
             {confirmationMessage}
       </div>
 
-      <div className="r-panel col-md-5">
+      <div className="r-panel col-md-5 d-lg-block d-md-none d-sm-none">
             <img alt="panel" src={panel}/>
          </div>
          

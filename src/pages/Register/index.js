@@ -52,10 +52,10 @@ const Register = () => {
                </div>
                <div className="row">
 
-                  <div className="col-3">
+                  <div className="col-lg-3 col-md-6">
                      <button id="crearCuentaInit" onClick={signup} className="btn btnCuenta">Crear cuenta</button>
                   </div>
-                  <div className="col-3 iniSesion">
+                  <div className="col-lg-3 col-md-6 iniSesion">
                      <p>ó <Link to='/login'>
                         Inicia Sesión
                         </Link>
@@ -67,7 +67,7 @@ const Register = () => {
                </div>
             </form>
          </div>
-         <div className="r-panel col-md-5">
+         <div className="r-panel col-md-5 d-lg-block d-md-none d-sm-none">
             <img src={panel}/>
          </div>
          
