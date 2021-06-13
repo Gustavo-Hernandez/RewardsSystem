@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, CardImg, Badge, CardTitle } from 'reactstrap';
 import { Context as ProductContext } from '../../context/ProductDataContext';
 
-const ProductCell = ({ name, points, img, type }) => {
+const ProductCell = ({ uid, name, points, img, type }) => {
   const { setCurrentProduct } = useContext(ProductContext);
+
+  const link = '/product/' + uid;
 
   return (
     <Link
-      to='/product'
+      to = {link}
       style={{ textDecoration: 'none', color: 'inherit' }}
       onClick={() => setCurrentProduct({ name, points, img, type })}
     >

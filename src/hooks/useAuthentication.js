@@ -5,7 +5,7 @@ import { Context as AuthContext } from '../context/AuthContext';
 const useAuthentication = () => {
   const [isAuthenticated, setAuthentication] = useState(false);
   const [isVerified, setVerification] = useState(false);
-  const [isAdmin, setAdmin] = useState(true);
+  const [isAdmin, setAdmin] = useState(false);
   const { setEmail } = useContext(AuthContext);
 
   useEffect(() => {

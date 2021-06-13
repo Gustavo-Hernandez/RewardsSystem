@@ -7,7 +7,7 @@ import Profile from '../pages/Profile';
 const ClientNavigator = () => {
   return (
     <Switch>
-      <Route exact path='/product' component={Product} />
+      <Route exact path='/product/:id' component={Product} />
       <Route exact path='/profile' component={Profile} />
       <Route exact path='/dashboard' component={ClientHome} />
       <Route path='/' component={ClientHome} />

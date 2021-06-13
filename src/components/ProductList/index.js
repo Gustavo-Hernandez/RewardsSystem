@@ -3,7 +3,7 @@ import ProductCell from './ProductCell';
 
 const ProductList = ({ title, productList }) => {
   const products = productList.map((p) => (
-    <ProductCell name={p.name} points={p.points} img={p.img} type={p.type} />
+    <ProductCell uid={p.uid} name={p.name} points={p.points} img={p.img} type={p.type} />
   ));
   return (
     <div
