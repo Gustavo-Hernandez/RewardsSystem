@@ -1,14 +1,22 @@
-import React, { useContext } from 'react';
+import React, {useContext, useEffect} from 'react';
 import NavigationBar from '../../components/NavigationBar';
 import { Button, Col, Row } from 'reactstrap';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Context as ProductContext } from '../../context/ProductDataContext';
+import { useParams } from "react-router-dom";
 
 const Product = ({ history }) => {
-  const {
-    state: { current },
-  } = useContext(ProductContext);
+    const { id } = useParams();
+
+    const {
+        queryByID,
+        state: { current },
+    } = useContext(ProductContext);
+
+    useEffect(() =>{
+        queryByID(id);
+    }, []);
 
   return (
     <div>

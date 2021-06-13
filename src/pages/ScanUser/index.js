@@ -7,14 +7,20 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 const ScanUser = () => {
   const [isScanning, setIsScanning] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [nestedModal, setNestedModal] = useState(false);
   const [uid, setUid] = React.useState('');
   const [pts, setPts] = React.useState(0);
+  const [nestedError, setNestedError] = React.useState('');
 
   const {
     queryByID,
     updatePoints,
     state: { points, email },
   } = useContext(UserContext);
+
+  const toggleNested = () => {
+    setNestedModal(!nestedModal);
+  }
 
   const toggleScan = () => {
     setIsScanning(!isScanning);
@@ -42,8 +48,14 @@ const ScanUser = () => {
 
   const handleSubmit = () => {
     let change = parseInt(points) + parseInt(pts);
-    updatePoints({ change, uid });
-    setOpen(false);
+    if(change < 0){
+      setNestedError("El usuario no cuenta con los suficientes puntos para descontar.");
+      toggleNested();
+    }
+    else{
+      updatePoints({ change, uid });
+      setOpen(false);
+    }
   };
 
   const handleChange = event => {
@@ -73,6 +85,13 @@ const ScanUser = () => {
             <ModalBody>
               Usuario: { email } Puntos: { points }
               <input type={"number"} placeholder={"Puntos"} onChange={handleChange}/>
+              <Modal isOpen={nestedModal} toggle={toggleNested}>
+                <ModalHeader>ERROR</ModalHeader>
+                <ModalBody>{nestedError}</ModalBody>
+                <ModalFooter>
+                  <Button color="primary" onClick={toggleNested}>OK</Button>
+                </ModalFooter>
+              </Modal>
             </ModalBody>
             <ModalFooter>
               <Button color="secondary" onClick={handleClose}>Cancelar</Button>{' '}

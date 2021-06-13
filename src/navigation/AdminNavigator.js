@@ -8,7 +8,7 @@ const AdminNavigator = () => {
   return (
     <Switch>
       <Route exact path='/scan' component={ScanUser} />
-      <Route exact path='/product' component={Product} />
+      <Route exact path='/products/:id' component={Product} />
       <Route exact path='/dashboard' component={AdminHome} />
       <Route path='/' component={AdminHome} />
       {/* TODO: Replace for Page not found*/}

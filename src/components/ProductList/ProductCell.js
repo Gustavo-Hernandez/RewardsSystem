@@ -4,14 +4,15 @@ import { Card, CardBody, CardImg, CardTitle } from 'reactstrap';
 import { Context as ProductContext } from '../../context/ProductDataContext';
 import PuffLoader from 'react-spinners/PuffLoader';
 
-const ProductCell = ({ name, points, img, type }) => {
+const ProductCell = ({ uid, name, points, img, type }) => {
   const { setCurrentProduct } = useContext(ProductContext);
 
   const [loaded, setLoaded] = useState(false);
+  const link = '/product/' + uid;
 
   return (
     <Link
-      to='/product'
+      to={link}
       style={{ textDecoration: 'none', color: 'inherit' }}
       onClick={() => setCurrentProduct({ name, points, img, type })}
     >
