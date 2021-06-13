@@ -1,7 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import NavigationBar from '../../components/NavigationBar';
 import QrReader from 'react-qr-reader';
-import {Context as UserContext} from "../../context/UserDataContext";
+import { Context as UserContext } from '../../context/UserDataContext';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const ScanUser = () => {
@@ -20,7 +20,7 @@ const ScanUser = () => {
 
   const toggleNested = () => {
     setNestedModal(!nestedModal);
-  }
+  };
 
   const toggleScan = () => {
     setIsScanning(!isScanning);
@@ -48,56 +48,80 @@ const ScanUser = () => {
 
   const handleSubmit = () => {
     let change = parseInt(points) + parseInt(pts);
-    if(change < 0){
-      setNestedError("El usuario no cuenta con los suficientes puntos para descontar.");
+    if (change < 0) {
+      setNestedError(
+        'El usuario no cuenta con los suficientes puntos para descontar.'
+      );
       toggleNested();
-    }
-    else{
+    } else {
       updatePoints({ change, uid });
       setOpen(false);
     }
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     let val = event.target.value;
     setPts(val);
-  }
+  };
 
   return (
     <div>
       <NavigationBar />
-      <h1>ScanUser</h1>
-      <div style={{ width: '280px' }}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          <Button onClick={toggleScan} className='btn btn-dark mb-2'>
-            {isScanning ? 'Cerrar Escáner' : 'Iniciar Escáner'}
-          </Button>
-          {isScanning && (
-            <QrReader delay={1000} onError={handleError} onScan={handleScan} />
-          )}
-          <Modal isOpen={open} toggle={handleClose} centered={true} >
-            <ModalHeader>Agregar/Quitar Puntos del Usuario</ModalHeader>
-            <ModalBody>
-              Usuario: { email } Puntos: { points }
-              <input type={"number"} placeholder={"Puntos"} onChange={handleChange}/>
-              <Modal isOpen={nestedModal} toggle={toggleNested}>
-                <ModalHeader>ERROR</ModalHeader>
-                <ModalBody>{nestedError}</ModalBody>
-                <ModalFooter>
-                  <Button color="primary" onClick={toggleNested}>OK</Button>
-                </ModalFooter>
-              </Modal>
-            </ModalBody>
-            <ModalFooter>
-              <Button color="secondary" onClick={handleClose}>Cancelar</Button>{' '}
-              <Button color="primary" onClick={handleSubmit}>Agregar/Quitar</Button>
-            </ModalFooter>
-          </Modal>
+      <div
+        style={{
+          width: '100%',
+          marginTop: '10px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <div style={{ width: '280px', marginTop: '10px' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Button onClick={toggleScan} className='btn btn-dark mb-2'>
+              {isScanning ? 'Cerrar Escáner' : 'Iniciar Escáner'}
+            </Button>
+            {isScanning && (
+              <QrReader
+                delay={1000}
+                onError={handleError}
+                onScan={handleScan}
+              />
+            )}
+            <Modal isOpen={open} toggle={handleClose} centered={true}>
+              <ModalHeader>Agregar/Quitar Puntos del Usuario</ModalHeader>
+              <ModalBody>
+                Usuario: {email} Puntos: {points}
+                <input
+                  type={'number'}
+                  placeholder={'Puntos'}
+                  onChange={handleChange}
+                />
+                <Modal isOpen={nestedModal} toggle={toggleNested}>
+                  <ModalHeader>ERROR</ModalHeader>
+                  <ModalBody>{nestedError}</ModalBody>
+                  <ModalFooter>
+                    <Button color='primary' onClick={toggleNested}>
+                      OK
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </ModalBody>
+              <ModalFooter>
+                <Button color='secondary' onClick={handleClose}>
+                  Cancelar
+                </Button>{' '}
+                <Button color='primary' onClick={handleSubmit}>
+                  Agregar/Quitar
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
         </div>
       </div>
     </div>

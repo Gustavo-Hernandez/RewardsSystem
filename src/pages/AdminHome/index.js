@@ -1,7 +1,7 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import NavigationBar from '../../components/NavigationBar';
 import ProductList from '../../components/ProductList';
-import {Context as ProductContext} from "../../context/ProductDataContext";
+import { Context as ProductContext } from '../../context/ProductDataContext';
 
 const AdminHome = () => {
   const {
@@ -14,10 +14,11 @@ const AdminHome = () => {
     // eslint-disable-next-line
   }, []);
 
+  const productsSorted = products.sort((a, b) => a.points - b.points);
   return (
     <div>
       <NavigationBar />
-      <ProductList title='Todos los productos' productList={products} />
+      <ProductList title='Todos los productos' productList={productsSorted} />
     </div>
   );
 };

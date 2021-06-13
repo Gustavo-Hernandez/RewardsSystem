@@ -20,16 +20,16 @@ const ProductCell = ({ uid, name, points, img, type }) => {
         style={{
           width: '180px',
           marginRight: '8px',
-          border: '1px solid #eccc68',
+          border: '1px solid #1167b1',
         }}
       >
         <div
           style={{
             position: 'absolute',
-            width: '30px',
+            width: '90px',
             height: '30px',
             zIndex: 2,
-            backgroundColor: '#eccc68',
+            backgroundColor: '#1167b1',
             color: 'white',
             display: 'flex',
             alignItems: 'center',
@@ -38,7 +38,7 @@ const ProductCell = ({ uid, name, points, img, type }) => {
             right: '0',
           }}
         >
-          {points}
+          Puntos: {points}
         </div>
         <CardImg
           top
@@ -48,7 +48,7 @@ const ProductCell = ({ uid, name, points, img, type }) => {
           }}
         />
         {!loaded && (
-          <PuffLoader css={'margin: 0 auto;'} color={'#eccc68'} size={80} />
+          <PuffLoader css={'margin: 0 auto;'} color={'#1167b1'} size={80} />
         )}
         <CardBody>
           <CardTitle tag='p'>

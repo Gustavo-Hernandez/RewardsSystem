@@ -3,7 +3,14 @@ import ProductCell from './ProductCell';
 
 const ProductList = ({ title, productList }) => {
   const products = productList.map((p) => (
-    <ProductCell uid={p.uid} name={p.name} points={p.points} img={p.img} type={p.type} />
+    <ProductCell
+      key={p.uid + Math.random()}
+      uid={p.uid}
+      name={p.name}
+      points={p.points}
+      img={p.img}
+      type={p.type}
+    />
   ));
   return (
     <div
